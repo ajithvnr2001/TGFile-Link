@@ -53,13 +53,13 @@ async def send_to_tmp_async(file):
 @bot.on(events.NewMessage(pattern='/start'))
 async def start(event):
     """Send a message when the command /start is issued."""
-    await event.reply('**Hi...**👋\n**I am Simple File Manager RoBot .\n I can upload files to Telegram from Direct Links .\n\n I can also Generate Fast direct Links from telegram files .**\n\n **Send /help to for more Information .** ')
+    await event.reply('**Hi...**👋\n**I am Simple File Manager RoBot .\n I can upload files to Telegram from Direct Links .\n\n I can also Generate Fast direct Links for telegram files .**\n\n **Send /help to for more Information .** ')
     raise events.StopPropagation
 
 @bot.on(events.NewMessage(pattern='/help'))
 async def start(event):
     """Send a message when the command /help is issued."""
-    await event.reply('**Send direct link here and reply /upload to upload to Telegram .** \n\n**Generate Transfer.sh & TmpNinja Links by Replying /transfersh & /tmpninja to Telegram Files .** \n\n\n**Click For Whole List of /Commands** ')
+    await event.reply('**Reply /upload to direct link to upload . Get Links for Telegram files by  Replying /transfersh & /tmpninja** \n\n\n**Click For Whole List of /commands** ')
     raise events.StopPropagation
 
 @bot.on(events.NewMessage(pattern='/commands'))
