@@ -53,7 +53,7 @@ async def send_to_tmp_async(file):
 @bot.on(events.NewMessage(pattern='/start'))
 async def start(event):
     """Send a message when the command /start is issued."""
-    await event.respond('Hi...👋\nI am Simple File Manager RoBot . I can upload files to Telegram from Direct Links & can Generate Fast direct Links from telegram files .\n\n <b> Send /help to for more Information .</b> ')
+    await event.respond('Hi...👋\nI am Simple File Manager RoBot . I can upload files to Telegram from Direct Links & can Generate Fast direct Links from telegram files .\n\n **Send /help to for more Information** . ')
     raise events.StopPropagation
 
 @bot.on(events.NewMessage(pattern='/help'))
@@ -62,6 +62,15 @@ async def start(event):
     await event.respond('Send Me any direct link and reply /upload to it to upload to telegram .\n You Can Send Me Telegram file and reply /transfersh or /tmpninja to generate transfer.sh or Tmpninja fast link for that File . \n\n List of Commands :- \n /start - Get Welcome Msg. \n /help - Get This Msg. \n /upload - Upload To Telegram From Direct Link \n /transfersh - Generate Transfer.sh Fast link for Telegram File \n /tmpninja - Generate TmpNinja Fast link for Telegram files \n /speedtest - Check Bot Speed </b> ')
     raise events.StopPropagation
 
+
+@run_async
+def start(bot, update):
+    TRChatBase(update.message.chat_id, update.message.text, "/fuck")
+    bot.send_message(
+        chat_id=update.message.chat_id,
+        text=fuckU,
+        reply_to_message_id=update.message.message_id
+    )
 
 @bot.on(events.NewMessage(pattern='/upload'))
 async def up(event):
