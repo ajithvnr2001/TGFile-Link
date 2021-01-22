@@ -65,7 +65,7 @@ async def start(event):
 @bot.on(events.NewMessage(pattern='/commands'))
 async def start(event):
     """Send a message when the command /commands is issued."""
-    await event.reply('**List of Commands :-** \n\n **/start - Get Welcome Msg.** \n**/help - Get help Msg.** \n **/commands - Get Command List **\n **/upload - Upload To Telegram** \n **/transfersh - Generate Transfersh Link **\n **/tmpninja - Generate TmpNinja link**\n **/speedtest - Check Bot Speed**')
+    await event.reply('**List of Commands :-** \n\n **/start - Get Welcome Msg.** \n**/help - Get help Msg.** \n **/commands - Get Command List **\n **/upload - Upload To Telegram** \n **/transfersh - Get Transfersh Link **\n **/tmpninja - Get TmpNinja link**\n **/speedtest - Check Bot Speed**')
     raise events.StopPropagation
 
 
