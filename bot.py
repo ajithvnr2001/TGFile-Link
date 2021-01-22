@@ -59,9 +59,14 @@ async def start(event):
 @bot.on(events.NewMessage(pattern='/help'))
 async def start(event):
     """Send a message when the command /help is issued."""
-    await event.reply('**Send Me any direct link and reply /upload to it to upload to telegram .** \n\n**Also You Can Send Me Telegram file and reply /transfersh to generate transfer.sh Link for file & /tmpninja for tmpninja link .** \n\n List of Commands :- \n /start - Get Welcome Msg. \n /help - Get This Msg. \n /upload - Upload To Telegram From Direct Link \n /transfersh - Generate Transfer.sh Fast link for Telegram File \n /tmpninja - Generate TmpNinja Fast link for Telegram files \n /speedtest - Check Bot Speed')
+    await event.reply('**Send direct link here and reply /upload to upload to Telegram .** \n\n**Generate Transfer.sh & TmpNinja Links by Replying /transfersh & /tmpninja to Telegram Files .** \n\n\n**Click For Whole List of /Commands** ')
     raise events.StopPropagation
 
+@bot.on(events.NewMessage(pattern='/commands'))
+async def start(event):
+    """Send a message when the command /commands is issued."""
+    await event.reply('**List of Commands :-** \n\n **/start - Get Welcome Msg.** \n**/help - Get help Msg.** \n **/commands - Get Command List **\n **/upload - Upload To Telegram** \n **/transfersh - Generate Transfersh Link **\n **/tmpninja - Generate TmpNinja link**\n **/speedtest - Check Bot Speed**')
+    raise events.StopPropagation
 
 
 
