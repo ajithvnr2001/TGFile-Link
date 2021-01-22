@@ -1,4 +1,4 @@
-from telethon import TelegramClient, events
+from telethon import TelegramClient, events, Button
 from download_from_url import download_file
 from config import BOTTOKEN, APIID, APIHASH, DOWNLOADPATH, USERNAME
 import os
@@ -53,10 +53,17 @@ async def send_to_tmp_async(file):
 @bot.on(events.NewMessage(pattern='/start'))
 async def start(event):
     """Send a message when the command /start is issued."""
-    await event.respond('Hi! please send me any file url or file uploaded in Telegram and I will upload to Telegram as file or generate download link of that file. Also you can upload sent file to TransferSh / TmpNinja.')
+    await event.respond('Hi...👋\nI am Simple File Manager RoBot . I can upload files to Telegram from Direct Links & can Generate Fast direct Links from telegram files .\n\n <b> Send /help to for more Information .</b> ')
     raise events.StopPropagation
 
-@bot.on(events.NewMessage(pattern='/up'))
+@bot.on(events.NewMessage(pattern='/help'))
+async def start(event):
+    """Send a message when the command /help is issued."""
+    await event.respond('Send Me any direct link and reply /upload to it to upload to telegram .\n You Can Send Me Telegram file and reply /transfersh or /tmpninja to generate transfer.sh or Tmpninja fast link for that File . \n\n List of Commands :- \n /start - Get Welcome Msg. \n /help - Get This Msg. \n /upload - Upload To Telegram From Direct Link \n /transfersh - Generate Transfer.sh Fast link for Telegram File \n /tmpninja - Generate TmpNinja Fast link for Telegram files \n /speedtest - Check Bot Speed </b> ')
+    raise events.StopPropagation
+
+
+@bot.on(events.NewMessage(pattern='/upload'))
 async def up(event):
     if event.reply_to_msg_id:
         start = time.time()
@@ -80,7 +87,7 @@ async def up(event):
                 ))
 
             zaman = str(time.time() - start)
-            await bot.send_file(event.chat.id, dosya, force_document=True, caption=f"{filename} uploaded in {zaman} seconds! By {USERNAME}")
+            await bot.send_file(event.chat.id, dosya, force_document=false, caption=f"{filename} uploaded in {zaman} seconds! By {USERNAME}")
         except Exception as e:
             traceback.print_exc()
 
