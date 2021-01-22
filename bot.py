@@ -53,13 +53,13 @@ async def send_to_tmp_async(file):
 @bot.on(events.NewMessage(pattern='/start'))
 async def start(event):
     """Send a message when the command /start is issued."""
-    await event.respond('Hi...👋\nI am Simple File Manager RoBot . I can upload files to Telegram from Direct Links & can Generate Fast direct Links from telegram files .\n\n **Send /help to for more Information** . ')
+    await event.reply('**Hi...**👋\n**I am Simple File Manager RoBot .\n I can upload files to Telegram from Direct Links .\n\n I can also Generate Fast direct Links from telegram files .**\n\n **Send /help to for more Information .** ')
     raise events.StopPropagation
 
 @bot.on(events.NewMessage(pattern='/help'))
 async def start(event):
     """Send a message when the command /help is issued."""
-    await event.reply('Send Me any direct link and reply /upload to it to upload to telegram .\n You Can Send Me Telegram file and reply /transfersh or /tmpninja to generate transfer.sh or Tmpninja fast link for that File . \n\n List of Commands :- \n /start - Get Welcome Msg. \n /help - Get This Msg. \n /upload - Upload To Telegram From Direct Link \n /transfersh - Generate Transfer.sh Fast link for Telegram File \n /tmpninja - Generate TmpNinja Fast link for Telegram files \n /speedtest - Check Bot Speed </b> ')
+    await event.reply('**Send Me any direct link and reply /upload to it to upload to telegram .** \n\n**Also You Can Send Me Telegram file and reply /transfersh to generate transfer.sh Link for file & /tmpninja for tmpninja link .** \n\n List of Commands :- \n /start - Get Welcome Msg. \n /help - Get This Msg. \n /upload - Upload To Telegram From Direct Link \n /transfersh - Generate Transfer.sh Fast link for Telegram File \n /tmpninja - Generate TmpNinja Fast link for Telegram files \n /speedtest - Check Bot Speed')
     raise events.StopPropagation
 
 
@@ -105,7 +105,7 @@ async def tsh(event):
     if event.reply_to_msg_id:
         start = time.time()
         url = await event.get_reply_message()
-        ilk = await event.respond("Downloading...")
+        ilk = await event.reply("Downloading...")
         try:
             file_path = await url.download_media(progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, ilk, start, "Downloading...")
@@ -113,12 +113,12 @@ async def tsh(event):
         except Exception as e:
             traceback.print_exc()
             print(e)
-            await event.respond(f"Downloading Failed\n\n**Error:** {e}")
+            await event.reply(f"Downloading Failed\n\n**Error:** {e}")
         
         await ilk.delete()
 
         try:
-            orta = await event.respond("Uploading to TransferSh...")
+            orta = await event.reply("Uploading to TransferSh...")
             download_link, final_date, size = await send_to_transfersh_async(file_path)
 
             zaman = str(time.time() - start)
@@ -126,13 +126,13 @@ async def tsh(event):
         except Exception as e:
             traceback.print_exc()
             print(e)
-            await event.respond(f"Uploading Failed\n\n**Error:** {e}")
+            await event.reply(f"Uploading Failed\n\n**Error:** {e}")
 
     raise events.StopPropagation
 
 @bot.on(events.NewMessage(pattern='/speedtest'))
 async def speedtest(event):
-    ilk = await event.respond(f"Calculating my internet speed. Please wait!")
+    ilk = await event.reply(f"Calculating my internet speed. Please wait!")
     start = time.time()
     s = speedtest.Speedtest()
     s.get_best_server()
@@ -160,7 +160,7 @@ async def tmp(event):
     if event.reply_to_msg_id:
         start = time.time()
         url = await event.get_reply_message()
-        ilk = await event.respond("Downloading...")
+        ilk = await event.reply("Downloading...")
         try:
             file_path = await url.download_media(progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, ilk, start, "Downloading...")
@@ -168,12 +168,12 @@ async def tmp(event):
         except Exception as e:
             traceback.print_exc()
             print(e)
-            await event.respond(f"Downloading Failed\n\n**Error:** {e}")
+            await event.reply(f"Downloading Failed\n\n**Error:** {e}")
         
         await ilk.delete()
 
         try:
-            orta = await event.respond("Uploading to TmpNinja...")
+            orta = await event.reply("Uploading to TmpNinja...")
             download_link = await send_to_tmp_async(file_path)
 
             zaman = str(time.time() - start)
@@ -181,7 +181,7 @@ async def tmp(event):
         except Exception as e:
             traceback.print_exc()
             print(e)
-            await event.respond(f"Uploading Failed\n\n**Error:** {e}")
+            await event.reply(f"Uploading Failed\n\n**Error:** {e}")
 
     raise events.StopPropagation
 
