@@ -1,6 +1,6 @@
 ## TG File-Link bot
 
-** This telegram bot Helps you in generating Long time fast link from telegram files .\n Additionly it uploading files to telegram from direct links .**
+**This telegram bot Helps you in generating Long time fast link from telegram files .**</br>**Additionly it uploading files to telegram from direct links .**
 
  
 
