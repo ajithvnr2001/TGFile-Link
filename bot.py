@@ -94,7 +94,8 @@ async def up(event):
                 ))
 
             zaman = str(time.time() - start)
-            await bot.send_file(event.chat.id, dosya, force_document=False, caption=f"{filename} \n@{USERNAME})
+            
+            await bot.send_file(event.chat.id, dosya, force_document=False, caption=f"{filename} \n\n Time Taken {zaman} seconds \n @{USERNAME}")
         except Exception as e:
             traceback.print_exc()
 
